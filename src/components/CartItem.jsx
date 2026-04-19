@@ -12,32 +12,13 @@ export default function CartItem({ item }) {
       <p>Price: ₹{item.price}</p>
 
       <div className="cart-actions">
-        <button
-          onClick={() =>
-            dispatch(updateQuantity({ id: item.id, amount: -1 }))
-          }
-        >
-          -
-        </button>
-
-        <span style={{ margin: "0 10px" }}>
-          {item.quantity}
-        </span>
-
-        <button
-          onClick={() =>
-            dispatch(updateQuantity({ id: item.id, amount: 1 }))
-          }
-        >
-          +
-        </button>
+        <button onClick={() => dispatch(updateQuantity({ id: item.id, amount: -1 }))}>-</button>
+        <span>{item.quantity}</span>
+        <button onClick={() => dispatch(updateQuantity({ id: item.id, amount: 1 }))}>+</button>
       </div>
 
-      <button
-        style={{ marginTop: "10px" }}
-        onClick={() => dispatch(removeItem(item.id))}
-      >
-        Remove
+      <button onClick={() => dispatch(removeItem(item.id))}>
+        Delete
       </button>
 
       <p>Total: ₹{item.price * item.quantity}</p>

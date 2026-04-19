@@ -12,11 +12,7 @@ export default function Cart() {
   };
 
   if (cartItems.length === 0) {
-    return (
-      <div className="container">
-        <h2>Your cart is empty</h2>
-      </div>
-    );
+    return <h2>Your cart is empty</h2>;
   }
 
   return (
@@ -27,9 +23,7 @@ export default function Cart() {
         <CartItem key={item.id} item={item} />
       ))}
 
-      <h2 style={{ marginTop: "20px" }}>
-        Total Amount: ₹{calculateTotalAmount()}
-      </h2>
+      <h2>Total Amount: ₹{calculateTotalAmount()}</h2>
     </div>
   );
 }

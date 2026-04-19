@@ -15,19 +15,17 @@ export default function ProductList() {
 
       {categories.map((category) => (
         <div key={category}>
-          <h2 style={{ marginTop: "20px" }}>{category}</h2>
+          <h2>{category}</h2>
 
           <div className="grid">
             {plants
-              .filter((plant) => plant.category === category)
+              .filter((p) => p.category === category)
               .map((plant) => (
                 <ProductCard
                   key={plant.id}
                   plant={plant}
-                  onAdd={(plant) => dispatch(addItem(plant))}
-                  disabled={cartItems.some(
-                    (item) => item.id === plant.id
-                  )}
+                  onAdd={() => dispatch(addItem(plant))}
+                  disabled={cartItems.some((i) => i.id === plant.id)}
                 />
               ))}
           </div>
