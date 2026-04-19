@@ -1,5 +1,5 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
-
+import Wishlist from "./pages/Wishlist";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import ProductList from "./pages/ProductList";
@@ -14,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/plants" element={<ProductList />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/wishlist" element={<Wishlist />} />
       </Routes>
     </HashRouter>
   );
