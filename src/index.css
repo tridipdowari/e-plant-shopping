@@ -36,9 +36,19 @@ body {
 /* Button spacing inside card */
 .card button {
   margin: 5px;
-  display: block;
-  width: 100%;
-  margin-top: 8px;
+  padding: 8px 12px;
+}
+
+.cart-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.cart-actions button {
+  width: auto;   /* important */
+  min-width: 60px;
 }
 
 /* Button */
@@ -71,6 +81,7 @@ button:disabled {
 
 /* Navbar links */
 nav a {
+  margin-right: 15px;
   text-decoration: none;
   font-weight: bold;
   color: #e0e0e0;

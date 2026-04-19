@@ -19,7 +19,8 @@ export default function Navbar() {
       <Link to="/cart" style={{ color: "white" }}>
         Cart ({totalCount})
       </Link>
-      <Link to="/wishlist" style={{ marginRight: "15px", color: "#e0e0e0" }}>
+
+      <Link to="/wishlist" style={{ marginLeft: "15px", color: "#e0e0e0" }}>
         Wishlist
       </Link>
     </nav>
