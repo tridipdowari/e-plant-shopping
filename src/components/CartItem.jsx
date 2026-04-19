@@ -1,48 +1,41 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { useDispatch } from "react-redux";
+import { removeItem, updateQuantity } from "../redux/CartSlice";
 
-const initialState = {
-  items: [],
-};
+export default function CartItem({ item }) {
+  const dispatch = useDispatch();
 
-const cartSlice = createSlice({
-  name: "cart",
-  initialState,
-  reducers: {
-    addItem: (state, action) => {
-      const existingItem = state.items.find(
-        (item) => item.id === action.payload.id
-      );
+  return (
+    <div className="card">
+      <img src={item.image} width="100" />
 
-      if (existingItem) {
-        existingItem.quantity += 1;
-      } else {
-        state.items.push({ ...action.payload, quantity: 1 });
-      }
-    },
+      <h3>{item.name}</h3>
 
-    removeItem: (state, action) => {
-      state.items = state.items.filter(
-        (item) => item.id !== action.payload
-      );
-    },
+      <p>Price: ₹{item.price}</p>
+      <p>Quantity: {item.quantity}</p>
 
-    updateQuantity: (state, action) => {
-      const item = state.items.find(
-        (item) => item.id === action.payload.id
-      );
+      <div className="cart-actions">
+        <button
+          onClick={() =>
+            dispatch(updateQuantity({ id: item.id, amount: 1 }))
+          }
+        >
+          +
+        </button>
 
-      if (item) {
-        item.quantity += action.payload.amount;
+        <button
+          onClick={() =>
+            dispatch(updateQuantity({ id: item.id, amount: -1 }))
+          }
+        >
+          -
+        </button>
 
-        if (item.quantity <= 0) {
-          state.items = state.items.filter(
-            (i) => i.id !== item.id
-          );
-        }
-      }
-    },
-  },
-});
+        <button onClick={() => dispatch(removeItem(item.id))}>
+          Delete
+        </button>
+      </div>
 
-export const { addItem, removeItem, updateQuantity } = cartSlice.actions;
-export default cartSlice.reducer;
+      <p>Total: ₹{item.price * item.quantity}</p>
+    </div>
+  );
+}
