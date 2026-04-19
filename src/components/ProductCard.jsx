@@ -1,4 +1,4 @@
-export default function ProductCard({ plant, onAdd }) {
+export default function ProductCard({ plant, onAdd, disabled }) {
   return (
     <div className="card">
       <img src={plant.image} width="120" />
@@ -6,8 +6,8 @@ export default function ProductCard({ plant, onAdd }) {
       <p>₹{plant.price}</p>
       <p>{plant.category}</p>
 
-      <button onClick={() => onAdd(plant)}>
-        Add to Cart
+      <button onClick={() => onAdd(plant)} disabled={disabled}>
+        {disabled ? "Added" : "Add to Cart"}
       </button>
     </div>
   );

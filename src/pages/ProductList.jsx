@@ -1,12 +1,12 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../redux/CartSlice";
 import plants from "../data/plants";
 import ProductCard from "../components/ProductCard";
 
 export default function ProductList() {
   const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.items);
 
-  // ✅ group categories
   const categories = [...new Set(plants.map((p) => p.category))];
 
   return (
@@ -25,6 +25,9 @@ export default function ProductList() {
                   key={plant.id}
                   plant={plant}
                   onAdd={(plant) => dispatch(addItem(plant))}
+                  disabled={cartItems.some(
+                    (item) => item.id === plant.id
+                  )}
                 />
               ))}
           </div>

@@ -9,10 +9,8 @@ export default function CartItem({ item }) {
       <img src={item.image} width="100" />
 
       <h3>{item.name}</h3>
-
       <p>Price: ₹{item.price}</p>
 
-      {/* 🔥 CLEAN QUANTITY CONTROL */}
       <div className="cart-actions">
         <button
           onClick={() =>
@@ -35,7 +33,6 @@ export default function CartItem({ item }) {
         </button>
       </div>
 
-      {/* 🔥 REMOVE BUTTON SEPARATE */}
       <button
         style={{ marginTop: "10px" }}
         onClick={() => dispatch(removeItem(item.id))}
