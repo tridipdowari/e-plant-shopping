@@ -46,6 +46,10 @@ button {
   cursor: pointer;
 }
 
+button:hover {
+  opacity: 0.9;
+}
+
 .bottom-actions {
   display: flex;
   justify-content: center;
@@ -56,4 +60,13 @@ button {
 button:disabled {
   background: gray;
   cursor: not-allowed;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
 }
