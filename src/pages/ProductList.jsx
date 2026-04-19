@@ -6,7 +6,7 @@ import ProductCard from "../components/ProductCard";
 export default function ProductList() {
   const dispatch = useDispatch();
 
-  // 🔥 Group plants by category
+  // ✅ group categories
   const categories = [...new Set(plants.map((p) => p.category))];
 
   return (

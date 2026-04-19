@@ -1,4 +1,4 @@
-export default function ProductCard({ plant, onAdd, onWishlist, disabled }) {
+export default function ProductCard({ plant, onAdd }) {
   return (
     <div className="card">
       <img src={plant.image} width="120" />
@@ -6,16 +6,9 @@ export default function ProductCard({ plant, onAdd, onWishlist, disabled }) {
       <p>₹{plant.price}</p>
       <p>{plant.category}</p>
 
-      <button onClick={() => onAdd(plant)} disabled={disabled}>
-        {disabled ? "Added" : "Add to Cart"}
+      <button onClick={() => onAdd(plant)}>
+        Add to Cart
       </button>
-
-      {/* ✅ Safe wishlist button */}
-      {onWishlist && (
-        <button onClick={() => onWishlist(plant)}>
-          ❤️ Wishlist
-        </button>
-      )}
     </div>
   );
 }
