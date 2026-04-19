@@ -1,23 +1,29 @@
-import { HashRouter, Routes, Route } from "react-router-dom";
-import Wishlist from "./pages/Wishlist";
-import Navbar from "./components/Navbar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import ProductList from "./pages/ProductList";
 import Cart from "./pages/Cart";
 
-function App() {
+export default function App() {
   return (
-    <HashRouter>
-      <Navbar />
+    <Router>
 
+      <div style={{ textAlign: "center", padding: "20px" }}>
+        <h1>Welcome to Paradise Nursery</h1>
+
+        <button
+          onClick={() => (window.location.href = "/#/plants")}
+        >
+          Get Started
+        </button>
+      </div>
+
+      {/* Existing routes */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/plants" element={<ProductList />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/wishlist" element={<Wishlist />} />
       </Routes>
-    </HashRouter>
+
+    </Router>
   );
 }
-
-export default App;
