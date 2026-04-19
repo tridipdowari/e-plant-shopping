@@ -9,7 +9,13 @@ export default function ProductCard({ plant, onAdd, onWishlist, disabled }) {
       <button onClick={() => onAdd(plant)} disabled={disabled}>
         {disabled ? "Added" : "Add to Cart"}
       </button>
-      <button onClick={() => onWishlist(plant)}>❤️ Wishlist</button>
+
+      {/* ✅ Safe wishlist button */}
+      {onWishlist && (
+        <button onClick={() => onWishlist(plant)}>
+          ❤️ Wishlist
+        </button>
+      )}
     </div>
   );
 }

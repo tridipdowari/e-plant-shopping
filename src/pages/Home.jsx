@@ -30,19 +30,19 @@ export default function Home() {
       </p>
 
       <button
-  style={{
-    marginTop: "20px",
-    padding: "10px 20px",
-    background: "#4caf50",
-    border: "none",
-    color: "white",
-    borderRadius: "5px",
-    cursor: "pointer",
-  }}
-  onClick={() => navigate("/plants")}
->
-  Get Started
-</button>
+        style={{
+          marginTop: "20px",
+          padding: "10px 20px",
+          background: "#4caf50",
+          border: "none",
+          color: "white",
+          borderRadius: "5px",
+          cursor: "pointer",
+        }}
+        onClick={() => navigate("/plants")}
+      >
+        Get Started
+      </button>
     </div>
   );
 }
